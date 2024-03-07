@@ -52,9 +52,10 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         #resp = requests.get(url) # making requests to server
         #with open(filename, "wb") as f: # opening a file handler to create new file 
         #    f.write(resp.content) # writing content to file
-        red_gifs_api = redgifs.API()
-        red_gifs_api.login()
-        red_gifs_api.download(url, filename)
+        redgifs.API().login().download(url, filename)
+        #red_gifs_api = redgifs.API()
+        #red_gifs_api.login()
+        #red_gifs_api.download(url, filename)
         
         tweet_title=x.title
         break
