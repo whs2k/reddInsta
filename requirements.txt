@@ -1,4 +1,4 @@
-pytwitter
+python-twitter-v2
 moviepy
 praw
 redgifs
