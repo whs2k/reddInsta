@@ -47,8 +47,7 @@ subreddit = random.choice(list_of_subreddits)
 print(subreddit)
 for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 	print(x.url)
-    if 'redgifs' in x.url:
-
+	if 'redgifs' in x.url:
         url = x.url
         print(url)
         #resp = requests.get(url) # making requests to server
