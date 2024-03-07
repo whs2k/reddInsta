@@ -6,7 +6,7 @@ from moviepy.editor import VideoFileClip
 import math
 import praw #for reddit
 #import requests
-from redgifs import API
+from redgifs import API as redgifsAPI
 import datetime
 import random
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
@@ -53,7 +53,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#resp = requests.get(url) # making requests to server
 		#with open(filename, "wb") as f: # opening a file handler to create new file 
 		#    f.write(resp.content) # writing content to file
-		red_gifs_api = API() #redgifs.API()
+		red_gifs_api = redgifsAPI() #redgifs.API()
 		time.sleep(2)
 		red_gifs_api.login()
 		red_gifs_api.download(url, filename)
