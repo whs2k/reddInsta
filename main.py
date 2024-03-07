@@ -45,10 +45,11 @@ twitter_api_authorized = Api(
 filename = 'to_upload.mp4'
 subreddit = random.choice(list_of_subreddits)
 for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
-    #print(subreddit)
+    
     if 'redgifs' in x.url:
+    	print(subreddit)
         url = x.url
-        #print(url)
+        print(url)
         #resp = requests.get(url) # making requests to server
         #with open(filename, "wb") as f: # opening a file handler to create new file 
         #    f.write(resp.content) # writing content to file
