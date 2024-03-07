@@ -14,6 +14,8 @@ import os
 import time
 import shutil
 
+print('num of arguments: ', len(sys.argv))
+#print(sys.argv)
 input_args = sys.argv
 
 list_of_subreddits = ['MikeAdriano','AngelaWhite',
@@ -38,8 +40,7 @@ twitter_api_authorized = Api(
     oauth_flow=True
     )
 
-print('num of arguments: ', len(sys.argv))
-#print(sys.argv)
+
 
 filename = 'to_upload.mp4'
 subreddit = random.choice(list_of_subreddits)
@@ -104,7 +105,7 @@ for x in video_parts:
 print(final_size)
 print(os.stat(video_parts[0]).st_size)
 
-resp = api_authorized.upload_media_chunked_init(
+resp = twitter_api_authorized.upload_media_chunked_init(
     total_bytes=final_size,
     media_type="video/mp4",
 )
@@ -112,22 +113,22 @@ media_id = resp.media_id_string
 
 for idx, part in enumerate(video_parts):
     with open(part, "rb") as media:
-        status = api_authorized.upload_media_chunked_append(
+        status = twitter_api_authorized.upload_media_chunked_append(
             media_id=media_id,
             media=media,
             segment_index=idx,
         )
         print(part, status)
 
-resp = api_authorized.upload_media_chunked_finalize(media_id=media_id)
+resp = twitter_api_authorized.upload_media_chunked_finalize(media_id=media_id)
 print(resp)
 
 
 time.sleep(10)
-resp = api_authorized.upload_media_chunked_status(media_id=media_id)
+resp = twitter_api_authorized.upload_media_chunked_status(media_id=media_id)
 print(resp)
 
-api_authorized.create_tweet(
+twitter_api_authorized.create_tweet(
     text=tweet_title,
     media_media_ids=[media_id],
 )
