@@ -18,7 +18,7 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['MikeAdriano','AngelaWhite',
+list_of_subreddits = ['MikeAdriano','AngelaWhite', 'RemyLaCroix','GiannaMichaels',
                       'girlsfinishing','cumsluts','javdreams',
                      'bukkake','PornIsCheating','pornrelapsed',
                      'ClassyPornstars','ModelsGoneMild','AvaAddams',
