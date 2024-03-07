@@ -11,7 +11,7 @@ import traceback
 import sys
 import pickle
 sleep_time = random.choice(range(1000))
-print(sleep_time)
+print(sleep_time, flush=True)
 time.sleep(sleep_time)
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -68,6 +68,16 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
                 .replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
         break
+if not os.path.isfile(filename):
+    for x in reddit.subreddit(subreddit).top(time_filter='day',limit=10):
+        if 'redgifs' not in x.url:
+            filename = x.url.split('/')[-1]
+            with open(filename, "wb") as f: # opening a file handler to create new file 
+                    f.write(requests.get(x.url).content) # writing content to file
+                    tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+                        .replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
+            break
+
 todays_alreadysent_list.append(subreddit)
 with open('todays_list.ob', 'wb') as fp:
     #pickle.dump([], fp)
