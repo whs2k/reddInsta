@@ -17,14 +17,15 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams',
-                     'bukkake','PornIsCheating','pornrelapsed',
-                     'ClassyPornstars','ModelsGoneMild','tiktokthots']
+list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','blowjobsandwich',
+                    'MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams','nsfwcosplay', 'deepthroat',
+                     'bukkake','PornIsCheating','pornrelapsed','bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted',
+                     'ClassyPornstars','ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai']
 star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
                    'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','anriokita',
                    'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens',
                    'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean',
-                   'SaraJay','NicoletteSheaNew','KristyBlack']
+                   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice']
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
