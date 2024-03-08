@@ -5,7 +5,6 @@ from pytwitter import Api
 import math
 import praw #for reddit
 #import requests
-from redgifs import API as redgifsAPI
 import datetime
 import random
 import os
