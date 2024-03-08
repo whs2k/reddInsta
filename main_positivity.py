@@ -50,7 +50,7 @@ tweet_title=str(x.title) + ' #' + str(subreddit)
 
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
-resp = api_authorized.upload_media_chunked_init(
+resp = twitter_api_authorized.upload_media_chunked_init(
     total_bytes=total_bytes,
     media_type="video/mp4",
 )
@@ -62,7 +62,7 @@ file = open(filename, 'rb')
 idx=0
 while bytes_sent < total_bytes:
     chunk = file.read(4*1024*1024)
-    status = api_authorized.upload_media_chunked_append(
+    status = twitter_api_authorized.upload_media_chunked_append(
             media_id=media_id,
             media=chunk,
             segment_index=idx
@@ -73,12 +73,12 @@ while bytes_sent < total_bytes:
     print(idx, media_id, status, bytes_sent)
 
 
-resp = api_authorized.upload_media_chunked_finalize(media_id=media_id)
+resp = twitter_api_authorized.upload_media_chunked_finalize(media_id=media_id)
 print(resp)
 time.sleep(5)
-resp = api_authorized.upload_media_chunked_status(media_id=media_id)
+resp = twitter_api_authorized.upload_media_chunked_status(media_id=media_id)
 print(resp)
-api_authorized.create_tweet(
+twitter_api_authorized.create_tweet(
     text=tweet_title,
     media_media_ids=[media_id],
 )
