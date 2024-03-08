@@ -1,0 +1,36 @@
+name: Post_Positive
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
+jobs:
+  scrape-latest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2.0.0
+        with:
+          python-version: '3.7'
+      - name: Install requirements
+        run: pip install python-twitter-v2 praw #-U redgifs #-r requirements.txt
+      - name: Run Positive_Scrape_and_Post
+        run: python main_positivity.py ${{secrets.REDDIT_CLIENT_ID}} ${{secrets.REDDIT_CLIENT_SECRET}} ${{secrets.REDDIT_PASSWORD}} ${{secrets.REDDIT_USER_AGENT}} ${{secrets.REDDIT_USER_NAME}} ${{secrets.TWITTER_ACCESS_TOKEN_POS}} ${{secrets.TWITTER_ACCESS_TOKEN_SECRET_POS}} ${{secrets.TWITTER_CONSUMER_KEY_POS}} ${{secrets.TWITTER_CONSUMER_SECRET_POS}} 
+      #- name: Set env vars
+      #  run: |
+      #    echo "DATE=$(python -c 'import datetime as dt; print(dt.datetime.now().date())')" >> $GITHUB_ENV
+      - name: Push to repository
+        run: |
+          git config --global user.name "whs2k"
+          git config --global user.email ${{secrets.GIT_USER_EMAIL}}
+          now=$(date)
+          git add -A
+          git commit -m "Auto Push on $now"
+          git push
