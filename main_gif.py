@@ -21,11 +21,11 @@ list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','Futa
 					'MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams','nsfwcosplay', 'deepthroat',
 					 'bukkake','PornIsCheating','pornrelapsed','bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted',
 					 'ClassyPornstars','ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai']
-star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
-				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','anriokita',
+star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger','KenzieReeves',
+				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','anriokita','RaeLilBlack',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens',
 				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean',
-				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice']
+				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','romirain','KiannaDior']
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
