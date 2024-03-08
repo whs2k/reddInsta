@@ -69,6 +69,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
                 .replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
         break
+
 if not os.path.isfile(filename):
     for x in reddit.subreddit(subreddit).top(time_filter='day',limit=10):
         if 'redgifs' not in x.url:
