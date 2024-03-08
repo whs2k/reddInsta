@@ -12,6 +12,10 @@ import time
 import pickle
 import helper
 
+sleep_time = random.choice(range(3300))
+print('sleep time: ', sleep_time, flush=True)
+time.sleep(sleep_time)
+
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
