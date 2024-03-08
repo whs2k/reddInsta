@@ -1,79 +1,55 @@
-from moviepy.editor import VideoFileClip
-import math
-import praw #for reddit
-#import requests
-from redgifs import API as redgifsAPI
+import requests
 import datetime
 import random
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 
-def prep_mp4(mp4_filename):
-	clip = VideoFileClip(filename)
-	duration = clip.duration
-	file_size = os.stat(filename).st_size
-	max_chunk_size = 5000000
-	seconds_per_chunk = duration/(file_size/max_chunk_size)
-	num_of_chunks = math.ceil(file_size/max_chunk_size)
-	final_file_size = seconds_per_chunk*num_of_chunks
-	print(duration, seconds_per_chunk, num_of_chunks, final_file_size)
-	lines = ''
-	for x in range(num_of_chunks):
-		lines = lines + str(round(x*seconds_per_chunk,3)) + '-' + str(round((x+1)*seconds_per_chunk,3)) + '\n'
 
-	print(lines)
-	with open("times.txt", "w") as text_file:
-		text_file.write(lines)
+import requests, traceback, json, io, os, urllib.request, sys
+#sys.stdout.reconfigure(encoding='utf-8')
 
-	# Replace the filename below.
-	required_video_file = 'to_upload.mp4'
 
-	with open("times.txt") as f:
-		times = f.readlines()
+def get_redgifs_embedded_video_url(redgifs_url, output_fn):
+	API_URL_REDGIFS = 'https://api.redgifs.com/v2/gifs/'
+	r = requests.get('https://api.redgifs.com/v2/auth/temporary')
+	token = r.json()['token']
 
-	times = [x.strip() for x in times] 
-	dir_name = 'vid_chunks'
+	headers={"Authorization": "Bearer "+token}
 	try:
-		os.mkdir(dir_name)
-	except:
-		pass
-	for time_ in times:
-		starttime = float(time_.split("-")[0])
-		endtime = float(time_.split("-")[1])
-		ffmpeg_extract_subclip(required_video_file, starttime, endtime, targetname='vid_chunks/'+str(times.index(time_)+1)+".mp4")
+		print("redgifs_url = {}".format(redgifs_url))
 
-	video_parts = os.listdir('vid_chunks')
-	video_parts = list(set(['vid_chunks/'+x for x in video_parts]))
-	video_parts.sort(key=lambda x: os.path.getmtime(x))
-	print(video_parts)
-	#print(os.stat('vid_chunks/7.mp4'))
-	final_size = 0
-	part_size = os.stat(video_parts[0]).st_size 
-	for x in video_parts:
-		final_size = final_size+os.stat(x).st_size 
+		#Get RedGifs video ID
+		redgifs_ID = redgifs_url.split('/watch/', 1)
+		redgifs_ID = redgifs_ID[1]
+		print("redgifs_ID = {}".format(redgifs_ID))
 		
-	print(final_size)
-	print(os.stat(video_parts[0]).st_size)
+		sess = requests.Session()
+		
+		#Get RedGifs Video Meta
+		# request = requests.get(API_URL_REDGIFS + redgifs_ID)
+		request = sess.get(API_URL_REDGIFS + redgifs_ID, headers=headers)
+		print(request)
+		
+		if request is None:
+			return
+		else:
+			rawData = request.json()
+			#print(rawData)
+			#print("rawData = {}".format(rawData))
 
-	resp = twitter_api_authorized.upload_media_chunked_init(
-		total_bytes=final_size,
-		media_type="video/mp4",
-	)
-	media_id = resp.media_id_string
+			#Get HD video url
+			hd_video_url = rawData['gif']['urls']['hd']
+			#print("hd_video_url = {}".format(hd_video_url))
+			
+			with sess.get(hd_video_url, stream=True) as r:
+				with open(output_fn, 'wb') as f:
+					for chunk in r.iter_content(chunk_size=8192): 
+						# If you have chunk encoded response uncomment 
+						# if and set chunk_size parameter to None.
+						# if chunk: 
+						f.write(chunk)
 
-	for idx, part in enumerate(video_parts):
-		with open(part, "rb") as media:
-			status = twitter_api_authorized.upload_media_chunked_append(
-				media_id=media_id,
-				media=media,
-				segment_index=idx,
-			)
-			print(part, status)
+			return hd_video_url
+	except Exception:
+		traceback.print_exc()
+		return
 
-	resp = twitter_api_authorized.upload_media_chunked_finalize(media_id=media_id)
-	print(resp)
-
-
-time.sleep(10)
-resp = twitter_api_authorized.upload_media_chunked_status(media_id=media_id)
-print(resp)
 

@@ -11,6 +11,7 @@ import random
 import os
 import time
 import pickle
+import helper
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -41,9 +42,9 @@ twitter_api_authorized = Api(
 		consumer_secret = input_args[9], #TWITTER_CONSUMER_SECRET
 	oauth_flow=True
 	)
-red_gifs_api = redgifsAPI() #redgifs.API()
-time.sleep(2)
-red_gifs_api.login()
+#red_gifs_api = redgifsAPI() #redgifs.API()
+#time.sleep(2)
+#red_gifs_api.login()
 
 with open ('todays_list.ob', 'rb') as fp:
     todays_alreadysent_list = pickle.load(fp)
@@ -66,7 +67,9 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#resp = requests.get(url) # making requests to server
 		#with open(filename, "wb") as f: # opening a file handler to create new file 
 		#    f.write(resp.content) # writing content to file
-		red_gifs_api.download(url, filename)
+		#red_gifs_api.download(url, filename)
+
+		video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
 		
 		tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
                 .replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
