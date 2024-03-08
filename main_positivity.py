@@ -38,13 +38,16 @@ subreddit = list_of_subreddits[index]
 for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
     print(subreddit)
     print(x.url)
-    mp4_url = x.media['reddit_video']['fallback_url']
-    print(mp4_url)
-    if '.mp4' in mp4_url:
-        #url = x.url
-        #print(url)
-        with open(filename, "wb") as f: # opening a file handler to create new file 
-            f.write(requests.get(mp4_url).content) # writing content to file
+    try:
+        if '.mp4' in x.media['reddit_video']['fallback_url']:
+            mp4_url = x.media['reddit_video']['fallback_url']
+            #url = x.url
+            #print(url)
+            print(mp4_url)
+            with open(filename, "wb") as f: # opening a file handler to create new file 
+                f.write(requests.get(mp4_url).content) # writing content to file
+    except:
+        continue
     break
 tweet_title=str(x.title) + ' #' + str(subreddit)
 tweet_title = tweet_title.replace('my','their').replace('I','they').replace("I'm","they're") \

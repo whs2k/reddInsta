@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -26,7 +26,7 @@ list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','Futa
 					 'ClassyPornstars','ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai','blowbang']
 star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','anriokita',
-				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens',
+				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
 				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean',
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice']
 all_subreddits = list_of_subreddits+star_subreddits
@@ -95,14 +95,33 @@ if not os.path.isfile(filename):
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-	
+else:
+	pass
+
+if not os.path.isfile(filename):
+	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
+	subreddit = random.choice(subreddits_to_choose_from)
+	print(subreddit)
+	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
+		print(x.url)
+		if 'redgifs' in x.url:
+			url = x.url
+			print(url, flush=True)
+			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
+			tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+					.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
+			#print(tweet_title, flush=True)
+			break
+	todays_alreadysent_list.append(subreddit)
+	with open('todays_list.ob', 'wb') as fp:
+		#pickle.dump([], fp)
+		pickle.dump(todays_alreadysent_list, fp)
 else:
 	pass
 
 
-
-tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
-				.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
+tweet_title=str(x.title).replace('my','their').replace('I','they').replace("I'm","they're") \
+				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
 
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
