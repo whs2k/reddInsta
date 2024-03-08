@@ -6,6 +6,8 @@ import random
 import os
 import time
 
+input_args = sys.argv
+
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
 					 client_secret=input_args[2],#REDDIT_CLIENT_SECRET
 					 password=input_args[3], #REDDIT_PASSWORD
