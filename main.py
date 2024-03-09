@@ -20,15 +20,15 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','blowjobsandwich',
+list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','blowjobsandwich','CumCoveredSluts'
 					'MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams','nsfwcosplay', 'deepthroat','Bukkake_Before_After',
 					 'bukkake','PornIsCheating','pornrelapsed','bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted',
 					 'ClassyPornstars','ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai','blowbang']
 star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
-				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','anriokita',
+				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
-				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean',
-				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice']
+				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean__',
+				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya']
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
@@ -48,41 +48,23 @@ twitter_api_authorized = Api(
 #red_gifs_api = redgifsAPI() #redgifs.API()
 #time.sleep(2)
 #red_gifs_api.login()
-
+today_str = str(datetime.datetime.now().date())
 with open ('todays_list.ob', 'rb') as fp:
 	todays_alreadysent_list = pickle.load(fp)
 	print(todays_alreadysent_list)
-if datetime.datetime.today in todays_alreadysent_list:
+if today_str in todays_alreadysent_list:
 	pass
 else:
-	todays_alreadysent_list = [datetime.datetime.today]
+	todays_alreadysent_list = [today_str]
 
 filename = 'to_upload.mp4'
 
-subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
-subreddit = random.choice(subreddits_to_choose_from)
-print(subreddit)
-for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
-	print(x.url)
-	if 'redgifs' in x.url:
-		url = x.url
-		print(url, flush=True)
-		video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
-		tweet_title=str(x.title).replace('my','the').replace('I ','they').replace("I'm","they're") \
-				.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
-		#print(tweet_title, flush=True)
-		break
-todays_alreadysent_list.append(subreddit)
-with open('todays_list.ob', 'wb') as fp:
-	#pickle.dump([], fp)
-	pickle.dump(todays_alreadysent_list, fp)
-
-if not os.path.isfile(filename):
+while not os.path.isfile(filename):
 	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
 	subreddit = random.choice(subreddits_to_choose_from)
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
-		print(x.url)
+		#print(x.url)
 		if 'redgifs' in x.url:
 			url = x.url
 			print(url, flush=True)
@@ -95,32 +77,10 @@ if not os.path.isfile(filename):
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-else:
-	pass
-
-if not os.path.isfile(filename):
-	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
-	subreddit = random.choice(subreddits_to_choose_from)
-	print(subreddit)
-	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
-		print(x.url)
-		if 'redgifs' in x.url:
-			url = x.url
-			print(url, flush=True)
-			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
-			tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
-					.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
-			#print(tweet_title, flush=True)
-			break
-	todays_alreadysent_list.append(subreddit)
-	with open('todays_list.ob', 'wb') as fp:
-		#pickle.dump([], fp)
-		pickle.dump(todays_alreadysent_list, fp)
-else:
-	pass
 
 
-tweet_title=str(x.title).replace('my','their').replace('I','they').replace("I'm","they're") \
+
+tweet_title=str(x.title).replace('my','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
 
 total_bytes = os.path.getsize(filename)
