@@ -24,7 +24,7 @@ list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','Futa
 					'MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams','nsfwcosplay', 'deepthroat','Bukkake_Before_After',
 					 'bukkake','PornIsCheating','pornrelapsed','bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted',
 					 'ClassyPornstars','ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai','blowbang']
-star_subreddits = ['AngelaWhite','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
+star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
 				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean__',
