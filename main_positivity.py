@@ -50,7 +50,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         continue
     break
 tweet_title=str(x.title) + ' #' + str(subreddit)
-tweet_title = tweet_title.replace('my','their').replace('I','they').replace("I'm","they're") \
+tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
 
 total_bytes = os.path.getsize(filename)

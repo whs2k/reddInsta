@@ -68,7 +68,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		url = x.url
 		print(url, flush=True)
 		video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
-		tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+		tweet_title=str(x.title).replace('my','the').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
 		#print(tweet_title, flush=True)
 		break
