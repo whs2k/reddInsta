@@ -51,7 +51,7 @@ twitter_api_authorized = Api(
 today_str = str(datetime.datetime.now().date())
 with open ('todays_list.ob', 'rb') as fp:
 	todays_alreadysent_list = pickle.load(fp)
-	print(todays_alreadysent_list)
+	#print(todays_alreadysent_list)
 if today_str in todays_alreadysent_list:
 	pass
 else:
@@ -65,7 +65,7 @@ while not os.path.isfile(filename):
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#print(x.url)
-		if 'redgifs' in x.url:
+		if ('redgifs' in x.url) & (str(x.title) not in todays_alreadysent_list):
 			url = x.url
 			print(url, flush=True)
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
@@ -74,6 +74,7 @@ while not os.path.isfile(filename):
 			#print(tweet_title, flush=True)
 			break
 	todays_alreadysent_list.append(subreddit)
+	todays_alreadysent_list.append(str(x.title))
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
