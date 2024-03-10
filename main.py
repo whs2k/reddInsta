@@ -53,13 +53,14 @@ twitter_api_authorized = Api(
 #time.sleep(2)
 #red_gifs_api.login()
 today_str = str(datetime.datetime.now().date())
+tommorrow_str = str(datetime.date.today() + datetime.timedelta(days=1))
 with open ('todays_list.ob', 'rb') as fp:
 	todays_alreadysent_list = pickle.load(fp)
 	#print(todays_alreadysent_list)
 if today_str in todays_alreadysent_list:
 	pass
 else:
-	todays_alreadysent_list = [today_str]
+	todays_alreadysent_list = [today_str, tommorrow_str]
 
 filename = 'to_upload.mp4'
 
@@ -85,7 +86,7 @@ while not os.path.isfile(filename):
 
 
 
-tweet_title=str(x.title).replace('my','their').replace('I ','they').replace("I'm","they're") \
+tweet_title=str(x.title).replace('my','their').replace('My','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
 
 total_bytes = os.path.getsize(filename)
