@@ -74,11 +74,6 @@ while not os.path.isfile(filename):
 			url = x.url
 			print(url, flush=True)
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
-			tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
-					.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
-			if subreddit in star_subreddits:
-				tweey_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
-					.replace('Club','').replace('New','')
 			#print(tweet_title, flush=True)
 			break
 	todays_alreadysent_list.append(subreddit)
@@ -86,12 +81,11 @@ while not os.path.isfile(filename):
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-
-
-
-#tweet_title=str(x.title).replace('my','their').replace('My','their').replace('I ','they').replace("I'm","they're") \
-#				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
-
+tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+					.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
+if subreddit in star_subreddits:
+	tweey_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
+		.replace('Club','').replace('New','')
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
 resp = twitter_api_authorized.upload_media_chunked_init(
