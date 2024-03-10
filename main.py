@@ -14,13 +14,13 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','blowjobsandwich',
+list_of_subreddits = ['blowjobsandwich',
 					'CumCoveredSluts','BabeCock','MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams',
 					'nsfwcosplay', 'deepthroat','Bukkake_Before_After','bukkake','PornIsCheating','pornrelapsed',
 					'bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted','ClassyPornstars',
@@ -32,7 +32,8 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean__',
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
-				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx']
+				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
+				   'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai']
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID

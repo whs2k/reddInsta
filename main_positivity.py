@@ -7,6 +7,7 @@ import os
 import time
 import sys
 from redvid import Downloader
+import shutil
 
 input_args = sys.argv
 
@@ -58,6 +59,7 @@ tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
 
 for item in os.listdir( os.getcwd() ):
+    print(item)
     if item.endswith(".mp4"):
         filename = item
 print(filename)
