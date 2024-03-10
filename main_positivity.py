@@ -6,6 +6,7 @@ import random
 import os
 import time
 import sys
+from redvid import Downloader
 
 input_args = sys.argv
 
@@ -44,8 +45,11 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             #url = x.url
             #print(url)
             print(mp4_url)
-            with open(filename, "wb") as f: # opening a file handler to create new file 
-                f.write(requests.get(mp4_url).content) # writing content to file
+            #with open(filename, "wb") as f: # opening a file handler to create new file 
+            #    f.write(requests.get(mp4_url).content) # writing content to file
+            reddit = Downloader(max_q=True)
+            reddit.url = x.url
+            reddit.download()
     except:
         continue
     break
@@ -87,4 +91,7 @@ twitter_api_authorized.create_tweet(
     text=tweet_title,
     media_media_ids=[media_id],
 )
-os.remove(filename)
+shutil.rmtree('redvid_temp')
+for item in os.listdir( os.getcwd() ):
+    if item.endswith(".mp4"):
+        os.remove( os.path.join( item ) )
