@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -23,16 +23,16 @@ input_args = sys.argv
 list_of_subreddits = ['hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','blowjobsandwich',
 					'CumCoveredSluts','BabeCock','MikeAdriano','GirlsFinishingTheJob','cumsluts','javdreams',
 					'nsfwcosplay', 'deepthroat','Bukkake_Before_After','bukkake','PornIsCheating','pornrelapsed',
-					'bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted','BimboFetish','ClassyPornstars',
+					'bigtitsinbikinis','ActuallyHugeCumshots','SpitRoasted','ClassyPornstars',
 					'ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','FemboyHentai','blowbang',
-					'Licked']
+					'Licked','xxxcaptions','porninfifteenseconds'] #'BimboFetish'
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
 				   'KendraLust','valentinanappi','karleegrey','MandyMuse','Evalovia','AlettaOcean__',
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
-				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson']
+				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx']
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
@@ -75,7 +75,10 @@ while not os.path.isfile(filename):
 			print(url, flush=True)
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
 			tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
-					.replace("I've","they've").replace("I'd","they'd") + ' #' +str(subreddit)
+					.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
+			if subreddit in star_subreddits:
+				tweey_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
+					.replace('Club','').replace('New','')
 			#print(tweet_title, flush=True)
 			break
 	todays_alreadysent_list.append(subreddit)
@@ -86,8 +89,8 @@ while not os.path.isfile(filename):
 
 
 
-tweet_title=str(x.title).replace('my','their').replace('My','their').replace('I ','they').replace("I'm","they're") \
-				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
+#tweet_title=str(x.title).replace('my','their').replace('My','their').replace('I ','they').replace("I'm","they're") \
+#				.replace("I've","they've").replace("I'd","they'd").replace('our','their')+ ' #' +str(subreddit)
 
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
