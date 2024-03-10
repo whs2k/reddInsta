@@ -34,7 +34,7 @@ elif 8 <= hour < 16:
 elif 16 <= hour < 24:
     index=2
 
-filename = 'to_upload_positive.mp4'
+
 subreddit = list_of_subreddits[index]
 for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
     print(subreddit)
@@ -57,6 +57,10 @@ tweet_title=str(x.title) + ' #' + str(subreddit)
 tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
 
+for item in os.listdir( os.getcwd() ):
+    if item.endswith(".mp4"):
+        filename = item
+print(filename)
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
 resp = twitter_api_authorized.upload_media_chunked_init(
