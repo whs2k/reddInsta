@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -36,7 +36,7 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
 				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
-				   'MikeAdriano','charlottesartre','SophiaLockeX']
+				   'MikeAdriano','charlottesartre','SophiaLockeX','AvaDevine']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
