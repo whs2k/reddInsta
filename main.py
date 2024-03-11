@@ -70,7 +70,7 @@ else:
 filename = 'to_upload.mp4'
 
 while not os.path.isfile(filename):
-	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
+	subreddits_to_choose_from = [x for x in star_subreddits if x not in todays_alreadysent_list]
 	subreddit = random.choice(subreddits_to_choose_from)
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
