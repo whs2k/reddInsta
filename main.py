@@ -14,18 +14,19 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
 list_of_subreddits = ['blowjobsandwich',
-					'CumCoveredSluts','BabeCock','MikeAdriano','GirlsFinishingTheJob','cumsluts',
+					'CumCoveredSluts','BabeCock','GirlsFinishingTheJob','cumsluts',
 					'nsfwcosplay', 'deepthroat','Bukkake_Before_After','bukkake','PornIsCheating','pornrelapsed',
 					'bigtitsinbikinis','SpitRoasted','ClassyPornstars',
 					'ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','blowbang',
-					'Licked','xxxcaptions','porninfifteenseconds'] 
+					'Licked','xxxcaptions','porninfifteenseconds',
+					'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','Pornstar_moms'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
@@ -34,7 +35,8 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
 				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
-				   'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai']
+				   'MikeAdriano','charlottesartre']
+				   
 all_subreddits = list_of_subreddits+star_subreddits
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
@@ -68,7 +70,7 @@ filename = 'to_upload.mp4'
 
 while not os.path.isfile(filename):
 	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
-	subreddit = random.choice(subreddits_to_choose_from)
+	subreddit = random.choice(star_subreddits)
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#print(x.url)
