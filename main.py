@@ -21,13 +21,14 @@ print('num of arguments: ', len(sys.argv))
 input_args = sys.argv
 
 list_of_subreddits = ['blowjobsandwich',
-					'CumCoveredSluts','BabeCock','GirlsFinishingTheJob','cumsluts',
+					'CumCoveredSluts','GirlsFinishingTheJob','cumsluts',
 					'nsfwcosplay', 'deepthroat','Bukkake_Before_After','bukkake','PornIsCheating','pornrelapsed',
 					'bigtitsinbikinis','SpitRoasted','ClassyPornstars',
 					'ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','blowbang',
-					'Licked','xxxcaptions','porninfifteenseconds',
-					'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai','Pornstar_moms'] 
+					'Licked','xxxcaptions','porninfifteenseconds','Pornstar_moms']
+					#'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
+					#,'BabeCock'
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
@@ -35,7 +36,7 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
 				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
-				   'MikeAdriano','charlottesartre']
+				   'MikeAdriano','charlottesartre','SophiaLockeX']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
@@ -85,11 +86,13 @@ while not os.path.isfile(filename):
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
-					.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
-if subreddit in star_subreddits:
-	tweet_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
-		.replace('Club','').replace('New','')
+	tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+						.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
+	if subreddit in star_subreddits:
+		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
+			.replace('Club','').replace('New','')
+
+
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
 resp = twitter_api_authorized.upload_media_chunked_init(
