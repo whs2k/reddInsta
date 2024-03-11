@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -71,7 +71,7 @@ filename = 'to_upload.mp4'
 
 while not os.path.isfile(filename):
 	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
-	subreddit = random.choice(star_subreddits)
+	subreddit = random.choice(subreddits_to_choose_from)
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#print(x.url)
