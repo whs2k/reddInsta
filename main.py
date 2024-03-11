@@ -86,7 +86,7 @@ while not os.path.isfile(filename):
 tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
 					.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
 if subreddit in star_subreddits:
-	tweey_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
+	tweet_title = tweey_title + ' #' +str(subreddit).replace('_','').replace('X','') \
 		.replace('Club','').replace('New','')
 total_bytes = os.path.getsize(filename)
 print(total_bytes)
