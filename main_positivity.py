@@ -51,7 +51,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             reddit = Downloader(max_q=True)
             reddit.url = x.url
             reddit.download()
-            time.sleep(30)
+            time.sleep(10)
     except:
         continue
     break
@@ -60,18 +60,18 @@ tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
 
 for item in os.listdir( os.getcwd() ):
-    print(item)
+    #print(item)
     if item.endswith(".mp4"):
         filename = item
-print(filename)
+print('mp4 filename: ', filename)
 total_bytes = os.path.getsize(filename)
-print(total_bytes)
+#print(total_bytes)
 resp = twitter_api_authorized.upload_media_chunked_init(
     total_bytes=total_bytes,
     media_type="video/mp4",
 )
 media_id = resp.media_id_string
-print(media_id)
+print('media_id: ',media_id)
 segment_id = 0
 bytes_sent = 0
 file = open(filename, 'rb')
