@@ -26,7 +26,7 @@ twitter_api_authorized = Api(
 	oauth_flow=True
 	)
 
-list_of_subreddits = ['aww','MadeMeSmile','BeAmazed']
+list_of_subreddits = ['aww','MadeMeSmile','BeAmazed','cute','PeopleFuckingDying']
 hour = datetime.datetime.now().hour
 if 0 <= hour < 8:
     index=0
@@ -53,9 +53,10 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             reddit.download()
             time.sleep(10)
     except:
+        time.sleep(10)
         continue
     break
-tweet_title=str(x.title) + ' #' + str(subreddit)
+tweet_title=str(x.title) #+ ' #' + str(subreddit)
 tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
 

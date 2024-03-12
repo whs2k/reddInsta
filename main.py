@@ -20,15 +20,15 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['blowjobsandwich',
-					'CumCoveredSluts','GirlsFinishingTheJob','cumsluts',
-					'nsfwcosplay', 'deepthroat','Bukkake_Before_After','bukkake','PornIsCheating','pornrelapsed',
-					'bigtitsinbikinis','SpitRoasted','ClassyPornstars',
-					'ModelsGoneMild','tiktokthots','Exxxtras','Oilporn','HENTAI_GIF','blowbang',
-					'Licked','xxxcaptions','porninfifteenseconds','Pornstar_moms']
+list_of_subreddits = ['blowjobsandwich','GirlsFinishingTheJob','nsfwcosplay','Bukkake_Before_After',
+					'bukkake','PornIsCheating','pornrelapsed',
+					'bigtitsinbikinis','ClassyPornstars','BoutineLaModels',
+					'ModelsGoneMild','tiktokthots','blowbang',
+					'Licked','xxxcaptions','porninfifteenseconds']
 					#'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
-					#,'BabeCock'
+					#,'BabeCock','CumCoveredSluts' #cumsluts,#SpitRoasted, Exxxtras HENTAI_GIF
+					#,'Oilporn',Pornstar_moms
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
@@ -38,7 +38,8 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
 				   'MikeAdriano','charlottesartre','SophiaLockeX','AvaDevine','ArabelleRaphaelFans',
 				   'AshleyAdams','KenzieReeves','SkylarVox','LexiLuna','LaurenPhillips','ElizaIbarra',
-				   'AngelWickyX','lasirena69','liz_103','RoseMonroe']
+				   'AngelWickyX','lasirena69','liz_103','RoseMonroe','VeronicaLeal','ConniePerignon_',
+				   'NikkiBenz','JewelzBlu']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
@@ -72,7 +73,7 @@ else:
 filename = 'to_upload.mp4'
 
 while not os.path.isfile(filename):
-	subreddits_to_choose_from = [x for x in star_subreddits if x not in todays_alreadysent_list]
+	subreddits_to_choose_from = [x for x in all_subreddits if x not in todays_alreadysent_list]
 	subreddit = random.choice(subreddits_to_choose_from)
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
@@ -83,12 +84,14 @@ while not os.path.isfile(filename):
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
 			#print(tweet_title, flush=True)
 			break
+		elif ('redgifs' in x.url) & (str(x.title) in todays_alreadysent_list):
+			print('title already in sent list')
 	todays_alreadysent_list.append(subreddit)
 	todays_alreadysent_list.append(str(x.title))
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-	tweet_title=str(x.title).replace('my','the').replace('I','they').replace("I'm","they're") \
+	tweet_title=str(x.title).replace(' my ','the').replace(' I ','they').replace("I'm","they're") \
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
 	if subreddit in star_subreddits:
 		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
