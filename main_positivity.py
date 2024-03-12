@@ -51,6 +51,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
             reddit = Downloader(max_q=True)
             reddit.url = x.url
             reddit.download()
+            time.sleep(30)
     except:
         continue
     break

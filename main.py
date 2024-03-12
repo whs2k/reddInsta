@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -36,7 +36,9 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'SaraJay','NicoletteSheaNew','KristyBlack','NatashaNice','KahoShibuya','SyrenDeMer',
 				   'ClubDeeWilliams','ValericaSteele','chloe_cherry','GiaDerza_X','AshleyAdams',
 				   'BriannaArson','KiannaDior','JasmineJaeXX','MarshaMay','BreeOlson','Alexis_Fawx',
-				   'MikeAdriano','charlottesartre','SophiaLockeX','AvaDevine']
+				   'MikeAdriano','charlottesartre','SophiaLockeX','AvaDevine','ArabelleRaphaelFans',
+				   'AshleyAdams','KenzieReeves','SkylarVox','LexiLuna','LaurenPhillips','ElizaIbarra',
+				   'AngelWickyX','lasirena69','liz_103','RoseMonroe']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
@@ -90,7 +92,7 @@ while not os.path.isfile(filename):
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
 	if subreddit in star_subreddits:
 		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
-			.replace('Club','').replace('New','')
+			.replace('Club','').replace('New','').replace('Fans','')
 
 
 total_bytes = os.path.getsize(filename)
