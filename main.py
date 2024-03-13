@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -101,7 +101,15 @@ while not os.path.isfile(filename):
 	if subreddit in star_subreddits:
 		hastag_modified = str(subreddit).replace('_','').replace('X','') \
 			.replace('Club','').replace('New','').replace('Fans','')
-		tweet_title = tweet_title + ' #' + hastag_modified
+		hastag_with_space = ''
+		for i, letter in enumerate(hastag_modified):
+		    if i and letter.isupper():
+		        hastag_with_space += ' '
+		        hastag_with_space += letter
+		if hastag_with_space in tweet_title:
+			tweet_title = tweet_title.replace(hastag_with_space, '#'+hastag_modified)
+		else:
+			tweet_title = tweet_title + ' #' + hastag_modified
 
 
 total_bytes = os.path.getsize(filename)
