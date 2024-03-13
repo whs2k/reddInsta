@@ -68,7 +68,7 @@ with open ('todays_list.ob', 'rb') as fp:
 if today_str in todays_alreadysent_list:
 	pass
 else:
-	todays_alreadysent_list = [today_str, tommorrow_str]
+	todays_alreadysent_list = [today_str]#, tommorrow_str]
 
 with open ('all_titles_ever.ob', 'rb') as fp:
 	all_titles_ever = pickle.load(fp)
@@ -99,8 +99,9 @@ while not os.path.isfile(filename):
 	tweet_title=original_title.replace(' my ',' the ').replace(' I ',' they ').replace("I'm","they're") \
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ',' them ').replace(' Me ',' Them ')
 	if subreddit in star_subreddits:
-		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
+		hastag_modified = str(subreddit).replace('_','').replace('X','') \
 			.replace('Club','').replace('New','').replace('Fans','')
+		tweet_title = tweet_title + ' #' + hastag_modified
 
 
 total_bytes = os.path.getsize(filename)
