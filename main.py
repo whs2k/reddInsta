@@ -96,8 +96,8 @@ while not os.path.isfile(filename):
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
 	original_title = str(x.title)
-	tweet_title=original_title.replace(' my ','the').replace(' I ','they').replace("I'm","they're") \
-						.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
+	tweet_title=original_title.replace(' my ',' the ').replace(' I ',' they ').replace("I'm","they're") \
+						.replace("I've","they've").replace("I'd","they'd").replace(' me ',' them ').replace(' Me ',' Them ')
 	if subreddit in star_subreddits:
 		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
 			.replace('Club','').replace('New','').replace('Fans','')
