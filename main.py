@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -70,6 +70,10 @@ if today_str in todays_alreadysent_list:
 else:
 	todays_alreadysent_list = [today_str, tommorrow_str]
 
+with open ('all_titles_ever.ob', 'rb') as fp:
+	all_titles_ever = pickle.load(fp)
+	#print(todays_alreadysent_list)
+
 filename = 'to_upload.mp4'
 
 while not os.path.isfile(filename):
@@ -78,7 +82,7 @@ while not os.path.isfile(filename):
 	print(subreddit)
 	for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
 		#print(x.url)
-		if ('redgifs' in x.url) & (str(x.title) not in todays_alreadysent_list):
+		if ('redgifs' in x.url) & (str(x.title) not in all_titles_ever):
 			url = x.url
 			print(url, flush=True)
 			video_url = helper.get_redgifs_embedded_video_url(redgifs_url=url,output_fn=filename)
@@ -91,7 +95,8 @@ while not os.path.isfile(filename):
 	with open('todays_list.ob', 'wb') as fp:
 		#pickle.dump([], fp)
 		pickle.dump(todays_alreadysent_list, fp)
-	tweet_title=str(x.title).replace(' my ','the').replace(' I ','they').replace("I'm","they're") \
+	original_title = str(x.title)
+	tweet_title=original_title.replace(' my ','the').replace(' I ','they').replace("I'm","they're") \
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ','them').replace(' Me ','Them')
 	if subreddit in star_subreddits:
 		tweet_title = tweet_title + ' #' +str(subreddit).replace('_','').replace('X','') \
@@ -138,4 +143,8 @@ twitter_api_authorized.create_tweet(
 
 os.remove(filename)
 
+all_titles_ever.append(str(original_title))
+with open('all_titles_ever.ob', 'wb') as fp:
+	#pickle.dump([], fp)
+	pickle.dump(all_titles_ever, fp)
 
