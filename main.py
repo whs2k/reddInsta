@@ -101,7 +101,8 @@ while not os.path.isfile(filename):
 	if subreddit in star_subreddits:
 		hastag_modified = str(subreddit).replace('_','').replace('X','') \
 			.replace('Club','').replace('New','').replace('Fans','')
-		hastag_with_space = ''
+		tweet_title = tweet_title + ' #' + hastag_modified
+		'''hastag_with_space = ''
 		for i, letter in enumerate(hastag_modified):
 		    if i and letter.isupper():
 		        hastag_with_space += ' '
@@ -109,7 +110,7 @@ while not os.path.isfile(filename):
 		if hastag_with_space in tweet_title:
 			tweet_title = tweet_title.replace(hastag_with_space, '#'+hastag_modified)
 		else:
-			tweet_title = tweet_title + ' #' + hastag_modified
+			tweet_title = tweet_title + ' #' + hastag_modified'''
 
 
 total_bytes = os.path.getsize(filename)
