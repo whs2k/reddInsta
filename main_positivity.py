@@ -43,22 +43,27 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
     try:
         media_url = x.media['reddit_video']['fallback_url']
     except:
-        time.sleep(10)
+        #time.sleep(2)
         continue
     if '.mp4' in media_url:
-        print(x.url)
+        download_url = str(x.url)
+        print(download_url)
         #mp4_url = x.media['reddit_video']['fallback_url']
         #url = x.url
         #print(url)
         #print(mp4_url)
         #with open(filename, "wb") as f: # opening a file handler to create new file 
         #    f.write(requests.get(mp4_url).content) # writing content to file
-        reddit = Downloader(max_q=True, log=False)
-        reddit.url = str(x.url)
-        time.sleep(5)
-        reddit.download()
-        time.sleep(5)
         break
+    else:
+        continue
+
+reddit = Downloader(max_q=True, log=False)
+reddit.url = download_url
+time.sleep(5)
+reddit.download()
+time.sleep(5)
+
 tweet_title=str(x.title) #+ ' #' + str(subreddit)
 tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'm","they're") \
 				.replace("I've","they've").replace("I'd","they'd").replace('our','their')
