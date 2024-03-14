@@ -58,10 +58,10 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
     else:
         continue
 
-reddit = Downloader(max_q=True, log=False)
-reddit.url = 'https://v.redd.it/5osdkk0hq3oc1'#download_url
+reddit = Downloader(max_q=True, log=False, url='https://v.redd.it/5osdkk0hq3oc1').download()
+#reddit.url = 'https://v.redd.it/5osdkk0hq3oc1'#download_url
 time.sleep(5)
-reddit.download()
+#reddit.download()
 time.sleep(5)
 
 tweet_title=str(x.title) #+ ' #' + str(subreddit)
