@@ -55,8 +55,9 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         #    f.write(requests.get(mp4_url).content) # writing content to file
         reddit = Downloader(max_q=True, log=False)
         reddit.url = str(x.url)
+        time.sleep(5)
         reddit.download()
-        time.sleep(10)
+        time.sleep(5)
         break
 tweet_title=str(x.title) #+ ' #' + str(subreddit)
 tweet_title = tweet_title.replace('my','their').replace('I ','they').replace("I'm","they're") \
