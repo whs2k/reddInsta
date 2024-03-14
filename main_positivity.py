@@ -59,7 +59,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         continue
 
 reddit = Downloader(max_q=True, log=False)
-reddit.url = download_url
+reddit.url = 'https://v.redd.it/5osdkk0hq3oc1'#download_url
 time.sleep(5)
 reddit.download()
 time.sleep(5)
