@@ -46,6 +46,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         time.sleep(10)
         continue
     if '.mp4' in media_url:
+        print(x.url)
         #mp4_url = x.media['reddit_video']['fallback_url']
         #url = x.url
         #print(url)
@@ -53,7 +54,7 @@ for x in reddit.subreddit(subreddit).top(time_filter='day',limit=25):
         #with open(filename, "wb") as f: # opening a file handler to create new file 
         #    f.write(requests.get(mp4_url).content) # writing content to file
         reddit = Downloader(max_q=True, log=False)
-        reddit.url = x.url
+        reddit.url = str(x.url)
         reddit.download()
         time.sleep(10)
         break
