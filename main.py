@@ -146,8 +146,10 @@ time.sleep(10)
 resp = twitter_api_authorized.upload_media_chunked_status(media_id=media_id)
 print(resp)
 
+tweet_title_final = helper.convert_hastag_to_at(tweet_title)
+
 twitter_api_authorized.create_tweet(
-	text=tweet_title,
+	text=tweet_title_final,
 	media_media_ids=[media_id]
 )
 

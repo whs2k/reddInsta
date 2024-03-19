@@ -51,5 +51,9 @@ def get_redgifs_embedded_video_url(redgifs_url, output_fn):
 	except Exception:
 		traceback.print_exc()
 		return
-
+def convert_hastag_to_at(tweet_title_):
+	if '#AngelWicky' in   tweet_title_:
+		return  tweet_title_.replace('#AngelWicky','@Angel_Wicky_II')
+	else:
+		return tweet_title_
 
