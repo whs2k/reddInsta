@@ -20,15 +20,16 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['GirlsFinishingTheJob','nsfwcosplay','Bukkake_Before_After',
+list_of_subreddits = ['Bukkake_Before_After',
 					'bukkake','PornIsCheating','pornrelapsed',
-					'bigtitsinbikinis','ClassyPornstars','BoutineLaModels',
-					'ModelsGoneMild','tiktokthots','blowbang',
-					'Licked','xxxcaptions','porninfifteenseconds']
+					'ClassyPornstars',
+					'ModelsGoneMild','blowbang',
+					'Licked','porninfifteenseconds']
+					#'nsfwcosplay''bigtitsinbikinis','tiktokthots','GirlsFinishingTheJob','BoutineLaModels',
 					#'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
 					#,'BabeCock','CumCoveredSluts' #cumsluts,#SpitRoasted, Exxxtras HENTAI_GIF
-					#,'Oilporn',Pornstar_moms, 'blowjobsandwich',
+					#,'Oilporn',Pornstar_moms, 'blowjobsandwich','xxxcaptions',
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
