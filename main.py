@@ -101,7 +101,7 @@ while not os.path.isfile(filename):
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ',' them ').replace(' Me ',' Them ')
 	if subreddit in star_subreddits:
 		hastag_modified = str(subreddit).replace('_','').replace('X','') \
-			.replace('Club','').replace('New','').replace('Fans','')
+			.replace('Club','').replace('New','').replace('Fans','').replace('xxxOnly','')
 		tweet_title = tweet_title + ' #' + hastag_modified
 		'''hastag_with_space = ''
 		for i, letter in enumerate(hastag_modified):
