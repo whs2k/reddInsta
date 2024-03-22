@@ -20,7 +20,7 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['blowjobsandwich','GirlsFinishingTheJob','nsfwcosplay','Bukkake_Before_After',
+list_of_subreddits = ['GirlsFinishingTheJob','nsfwcosplay','Bukkake_Before_After',
 					'bukkake','PornIsCheating','pornrelapsed',
 					'bigtitsinbikinis','ClassyPornstars','BoutineLaModels',
 					'ModelsGoneMild','tiktokthots','blowbang',
@@ -28,7 +28,7 @@ list_of_subreddits = ['blowjobsandwich','GirlsFinishingTheJob','nsfwcosplay','Bu
 					#'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
 					#,'BabeCock','CumCoveredSluts' #cumsluts,#SpitRoasted, Exxxtras HENTAI_GIF
-					#,'Oilporn',Pornstar_moms
+					#,'Oilporn',Pornstar_moms, 'blowjobsandwich',
 star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCarter','abelladanger',
 				   'AdrianaChechik','LenaPaul','RemyLaCroix','Sashagrey','Eimi_Fukada','DreddxxxOnly',
 				   'GiannaMichaels','BrandiLove','sophiedee','LisaAnn','JadaStevens', 'VioletMyers',
