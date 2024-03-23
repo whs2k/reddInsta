@@ -40,7 +40,7 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'MikeAdriano','charlottesartre','SophiaLockeX','AvaDevine','ArabelleRaphaelFans',
 				   'AshleyAdams','KenzieReeves','SkylarVox','LexiLuna','LaurenPhillips','ElizaIbarra',
 				   'AngelWickyX','lasirena69','liz_103','RoseMonroe','VeronicaLeal','ConniePerignon_',
-				   'NikkiBenz','JewelzBlu','NicoleDoshi','KarmaRx','IndicaFlower']
+				   'NikkiBenz','JewelzBlu','NicoleDoshi','KarmaRx','IndicaFlower','eva_angelina','SukiSin']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 

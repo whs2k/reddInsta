@@ -54,6 +54,10 @@ def get_redgifs_embedded_video_url(redgifs_url, output_fn):
 def convert_hastag_to_at(tweet_title_):
 	if '#AngelWicky' in   tweet_title_:
 		return  tweet_title_.replace('#AngelWicky','@Angel_Wicky_II')
+	elif '#SukiSin' in tweet_title_:
+		return tweet_title_.replace('#SukiSin','@sukisinxx')
+	elif '#liz_103' in tweet_title_:
+		return tweet_title_.replace('#liz_103','@LilyLouOfficial')
 	else:
 		return tweet_title_
 
