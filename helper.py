@@ -58,6 +58,8 @@ def convert_hastag_to_at(tweet_title_):
 		return tweet_title_.replace('#SukiSin','@sukisinxx')
 	elif '#liz_103' in tweet_title_:
 		return tweet_title_.replace('#liz_103','@LilyLouOfficial')
+	elif '#JosephineJackson' in tweet_title_:
+		return tweet_title_.replace('#JosephineJackson','@josephinejxxx')
 	else:
 		return tweet_title_
 
