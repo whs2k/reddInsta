@@ -76,6 +76,8 @@ def convert_hastag_to_at(tweet_title_):
 		return tweet_title_.replace('#KiannaDior','@Kianna_Dior')
 	elif '#AvaDevine' in tweet_title_:
 		return tweet_title_.replace('#AvaDevine','@1avadevine')
+	elif '#RemyLaCroix' in tweet_title_:
+		return tweet_title_.replace('#RemyLaCroix','@RemyLaCroixxxxx')
 	elif '#NatashaNice' in tweet_title_:
 		return tweet_title_.replace('#NatashaNice','@BeNiceNatasha \n \n https://onlyfans.com/benicenatasha')
 	else:
