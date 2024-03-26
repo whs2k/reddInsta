@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(3300))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -94,11 +94,6 @@ while not os.path.isfile(filename):
 			break
 		elif ('redgifs' in x.url) & (str(x.title) in todays_alreadysent_list):
 			print('title already in sent list')
-	todays_alreadysent_list.append(subreddit)
-	todays_alreadysent_list.append(str(x.title))
-	with open('todays_list.ob', 'wb') as fp:
-		#pickle.dump([], fp)
-		pickle.dump(todays_alreadysent_list, fp)
 	original_title = str(x.title)
 	tweet_title=original_title.replace(' my ',' the ').replace(' I ',' they ').replace("I'm","they're") \
 						.replace("I've","they've").replace("I'd","they'd").replace(' me ',' them ').replace(' Me ',' Them ')
@@ -116,6 +111,11 @@ while not os.path.isfile(filename):
 			tweet_title = tweet_title.replace(hastag_with_space, '#'+hastag_modified)
 		else:
 			tweet_title = tweet_title + ' #' + hastag_modified'''
+todays_alreadysent_list.append(subreddit)
+todays_alreadysent_list.append(str(x.title))
+with open('todays_list.ob', 'wb') as fp:
+	#pickle.dump([], fp)
+	pickle.dump(todays_alreadysent_list, fp)
 
 
 total_bytes = os.path.getsize(filename)
