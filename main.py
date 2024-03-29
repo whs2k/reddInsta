@@ -43,7 +43,8 @@ star_subreddits = ['AngelaWhite','Miakhalifa','RileyReid','MiaMalkova','GabbieCa
 				   'NikkiBenz','JewelzBlu','NicoleDoshi','KarmaRx','IndicaFlower','eva_angelina','SukiSin',
 				   'AnnaBellPeaks','AnnaDeVille','SarahVandella','AmyAnderssen','Ashlynn_Brooke','BonnieRotten',
 				   'Cali_Carter','BrooklynChase','ChristyMack','EvaNotty','JaydenJaymes','JosephineJackson',
-				   'Katsumi','priyarai','SavannahBond','lanarhoades','AvaAddams','GinaValentina','KelsiMonroe']
+				   'Katsumi','priyarai','SavannahBond','lanarhoades','AvaAddams','GinaValentina','KelsiMonroe',
+				   'StephanieMichelle']
 				   
 all_subreddits = list_of_subreddits+star_subreddits
 
@@ -100,7 +101,7 @@ while not os.path.isfile(filename):
 	if subreddit in star_subreddits:
 		hastag_modified = str(subreddit).replace('_','').replace('X','') \
 			.replace('Club','').replace('New','').replace('Fans','').replace('xxxOnly','') \
-			.replace('2','')
+			.replace('2','').replace('[OC]','').replace('[oc]','').replace('(OC)','')
 		tweet_title = tweet_title + ' #' + hastag_modified
 		'''hastag_with_space = ''
 		for i, letter in enumerate(hastag_modified):
