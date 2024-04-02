@@ -22,7 +22,7 @@ jobs:
       - name: Install Python requirements
         run: pip install python-twitter-v2 praw requests #-U redgifs #-r requirements.txt
       - name: Run scrape_and_post_sfw
-        run: python main.py ${{secrets.REDDIT_CLIENT_ID}} ${{secrets.REDDIT_CLIENT_SECRET}} ${{secrets.REDDIT_PASSWORD}} ${{secrets.REDDIT_USER_AGENT}} ${{secrets.REDDIT_USER_NAME}} ${{secrets.TWITTER_ACCESS_TOKEN_SFW}} ${{secrets.TWITTER_ACCESS_TOKEN_SECRET_SFW}} ${{secrets.TWITTER_CONSUMER_KEY_SFW}} ${{secrets.TWITTER_CONSUMER_SECRET_SFW}} 
+        run: python main_sfw.py ${{secrets.REDDIT_CLIENT_ID}} ${{secrets.REDDIT_CLIENT_SECRET}} ${{secrets.REDDIT_PASSWORD}} ${{secrets.REDDIT_USER_AGENT}} ${{secrets.REDDIT_USER_NAME}} ${{secrets.TWITTER_ACCESS_TOKEN_SFW}} ${{secrets.TWITTER_ACCESS_TOKEN_SECRET_SFW}} ${{secrets.TWITTER_CONSUMER_KEY_SFW}} ${{secrets.TWITTER_CONSUMER_SECRET_SFW}} 
       #- name: Set env vars
       #  run: |
       #    echo "DATE=$(python -c 'import datetime as dt; print(dt.datetime.now().date())')" >> $GITHUB_ENV
