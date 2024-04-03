@@ -20,14 +20,19 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners']
+list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners','nonnude']
+length = len(list_of_subreddits)
+
 hour = datetime.datetime.now().hour
-if 0 <= hour < 8:
+if 0 <= hour < 6:
     index=0
-elif 8 <= hour < 16:
+elif 6 <= hour < 12:
     index=1
-elif 16 <= hour < 24:
+elif 12 <= hour < 18:
     index=2
+elif 18 <= hour < 18:
+    index=3
+
 
 
 subreddit = list_of_subreddits[index]
