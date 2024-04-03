@@ -12,27 +12,29 @@ import time
 import pickle
 import helper
 
-sleep_time = random.choice(range(3300))
+sleep_time = random.choice(range(5000))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners','nonnude']
+list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners','nonnude',
+						'2busty2hide']
 length = len(list_of_subreddits)
 
 hour = datetime.datetime.now().hour
-if 0 <= hour < 6:
+if 0 <= hour < 5:
     index=0
-elif 6 <= hour < 12:
+elif 5 <= hour < 10:
     index=1
-elif 12 <= hour < 18:
+elif 10 <= hour < 15:
     index=2
-elif 18 <= hour < 18:
+elif 15 <= hour < 20:
     index=3
-
+elif 20 <= hour < 24:
+    index=4
 
 
 subreddit = list_of_subreddits[index]
