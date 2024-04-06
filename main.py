@@ -12,7 +12,7 @@ import time
 import pickle
 import helper
 
-sleep_time = random.choice(range(3300))
+sleep_time = random.choice(range(9000))
 print('sleep time: ', sleep_time, flush=True)
 time.sleep(sleep_time)
 
