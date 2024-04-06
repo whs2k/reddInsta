@@ -20,21 +20,18 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners','nonnude',
-						'2busty2hide']
+list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners']
+#,'nonnude','2busty2hide']
 length = len(list_of_subreddits)
 
 hour = datetime.datetime.now().hour
-if 0 <= hour < 5:
+if 13 <= hour < 16:
     index=0
-elif 5 <= hour < 10:
+elif 16 <= hour < 19:
     index=1
-elif 10 <= hour < 15:
+elif 19 <= hour < 24:
     index=2
-elif 15 <= hour < 20:
-    index=3
-elif 20 <= hour < 24:
-    index=4
+
 
 
 subreddit = list_of_subreddits[index]
@@ -68,6 +65,9 @@ while not os.path.isfile(fn_to_upload):
                 f.write(r.content)
             break
     original_title = str(x.title)
+
+if original_title.count(' ') = 1:
+	original_title = '#' +  original_title.replace(' ','')
 
 tweet_text_final = original_title
 fn_format = fn_to_upload.split('.')[-1]
