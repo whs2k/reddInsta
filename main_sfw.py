@@ -34,7 +34,7 @@ elif 19 <= hour < 24:
 
 
 
-subreddit = list_of_subreddits[index]
+subreddit = list_of_subreddits[0]
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
 					 client_secret=input_args[2],#REDDIT_CLIENT_SECRET
@@ -66,7 +66,7 @@ while not os.path.isfile(fn_to_upload):
             break
     original_title = str(x.title)
 
-if original_title.count(' ') = 1:
+if original_title.count(' ') == 1:
 	original_title = '#' +  original_title.replace(' ','')
 
 tweet_text_final = original_title
