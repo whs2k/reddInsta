@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(7000))
 print('sleep time: ', sleep_time, flush=True)
-time.sleep(sleep_time)
+#time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
