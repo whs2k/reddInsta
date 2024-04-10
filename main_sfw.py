@@ -14,7 +14,7 @@ import helper
 
 sleep_time = random.choice(range(7000))
 print('sleep time: ', sleep_time, flush=True)
-#time.sleep(sleep_time)
+time.sleep(sleep_time)
 
 print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
@@ -34,7 +34,7 @@ elif 19 <= hour < 24:
 
 
 
-subreddit = list_of_subreddits[0]
+subreddit = list_of_subreddits[index]
 
 reddit = praw.Reddit(client_id=input_args[1], #REDDIT_CLIENT_ID
 					 client_secret=input_args[2],#REDDIT_CLIENT_SECRET
