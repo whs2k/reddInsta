@@ -12,7 +12,7 @@ import time
 import pickle
 import helper
 
-sleep_time = random.choice(range(7000))
+sleep_time = random.choice(range(3000))
 print('sleep time: ', sleep_time, flush=True)
 time.sleep(sleep_time)
 
@@ -20,17 +20,23 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners']
+list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners',
+'PrettyGirls','BeautifulFemales']
 #,'nonnude','2busty2hide']
 length = len(list_of_subreddits)
 
 hour = datetime.datetime.now().hour
-if 13 <= hour < 16:
+if 13 <= hour < 15:
     index=0
-elif 16 <= hour < 19:
+elif 15 <= hour < 17:
     index=1
-elif 19 <= hour < 24:
+elif 17 <= hour < 19:
     index=2
+elif 19 <= hour < 21:
+    index=3
+elif 21 <= hour < 23:
+    index=4
+
 
 
 
@@ -64,7 +70,7 @@ while not os.path.isfile(fn_to_upload):
             with open(fn_to_upload,"wb") as f:
                 f.write(r.content)
             break
-    original_title = str(x.title)
+    original_title = str(x.title).replace('[irtr]','').replace('[IRTR]','')
 
 if original_title.count(' ') == 1:
 	original_title = '#' +  original_title.replace(' ','')

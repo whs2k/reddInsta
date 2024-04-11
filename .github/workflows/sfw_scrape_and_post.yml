@@ -2,7 +2,7 @@ name: Scrape_Sfw
 
 on:
   schedule:
-    - cron: "0 13-23/3 * * *"
+    - cron: "0 13-23/2 * * *"
   workflow_dispatch:
 
 env:
