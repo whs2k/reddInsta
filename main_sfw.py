@@ -70,7 +70,8 @@ while not os.path.isfile(fn_to_upload):
             with open(fn_to_upload,"wb") as f:
                 f.write(r.content)
             break
-    original_title = str(x.title).replace('[irtr]','').replace('[IRTR]','')
+    original_title = str(x.title).replace(' [irtr]','').replace(' [IRTR]','') \
+    						.replace('[irtr]','').replace('[IRTR]','')
 
 if original_title.count(' ') == 1:
 	original_title = '#' +  original_title.replace(' ','')
