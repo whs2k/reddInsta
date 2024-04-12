@@ -76,7 +76,7 @@ while not os.path.isfile(fn_to_upload):
 if original_title.count(' ') == 1:
 	original_title = '#' +  original_title.replace(' ','')
 
-tweet_text_final = original_title
+
 fn_format = fn_to_upload.split('.')[-1]
 total_bytes = os.path.getsize(fn_to_upload)
 print(total_bytes)
@@ -114,7 +114,8 @@ time.sleep(10)
 #resp = api_authorized.upload_media_chunked_status(media_id=media_id)
 #print(resp)
 
-#tweet_title_final = helper.convert_hastag_to_at(tweet_title)
+tweet_title_final = helper.convert_hastag_to_at(original_title)
+
 
 twitter_api_authorized.create_tweet(
 	text=tweet_text_final,
