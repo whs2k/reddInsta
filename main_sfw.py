@@ -20,8 +20,8 @@ print('num of arguments: ', len(sys.argv))
 #print(sys.argv)
 input_args = sys.argv
 
-list_of_subreddits = ['ModelsGoneMild','ClassyPornstars','gentlemanboners',
-'PrettyGirls','BeautifulFemales']
+list_of_subreddits = ['ModelsGoneMild','gentlemanboners',
+'PrettyGirls','BeautifulFemales','ClassyPornstars']
 #,'nonnude','2busty2hide']
 length = len(list_of_subreddits)
 
