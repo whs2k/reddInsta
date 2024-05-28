@@ -36,7 +36,7 @@ elif 19 <= hour < 21:
     index=3
 elif 21 <= hour < 23:
     index=4
-elif ((23 <= hour < 24) | (0 <= hour < 1) :
+elif ((23 <= hour < 24) | (0 <= hour < 1)):
     index=5
 
 
