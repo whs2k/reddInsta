@@ -21,7 +21,7 @@ print('num of arguments: ', len(sys.argv))
 input_args = sys.argv
 
 list_of_subreddits = ['ModelsGoneMild','gentlemanboners',
-'PrettyGirls','BeautifulFemales','ClassyPornstars','FamousFaces']
+'PrettyGirls','BeautifulFemales','ClassyPornstars','FamousFaces','Hentai_SFW']
 #,'nonnude','2busty2hide']
 length = len(list_of_subreddits)
 
@@ -38,6 +38,8 @@ elif 21 <= hour < 23:
     index=4
 elif ((23 <= hour < 24) | (0 <= hour < 1)):
     index=5
+elif 1 <= hour < 3:
+	index=6
 
 
 
