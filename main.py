@@ -24,7 +24,7 @@ list_of_subreddits = ['Bukkake_Before_After',
 					'bukkake','PornIsCheating','pornrelapsed',
 					'ClassyPornstars',
 					'ModelsGoneMild','blowbang',
-					'Licked','porninfifteenseconds']
+					'Licked','porninfifteenseconds','Spittok','PressCUMference']
 					#'nsfwcosplay''bigtitsinbikinis','tiktokthots','GirlsFinishingTheJob','BoutineLaModels',
 					#'hentai','Futanari','FutanariGifs','futanari_Comics','FutanariHentai'] 
 					#'BimboFetish','javdreams','deepthroat','ActuallyHugeCumshots','FemboyHentai',
